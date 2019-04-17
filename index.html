@@ -12,13 +12,13 @@
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/themes.css" />
   </head>
-  <body>
+  <body class="orange">
     <header>
       <div class="main_title">
-        <p>Wellcome! It`s Oleinik ToDoIst v0.2</p>
+        <p>Wellcome! It`s Oleinik ToDoIst v0.4</p>
         <div class="info">
-            <p class="how_muth">You have: <span></span> tasks</p>
-            <p class="you_theme">You theme: <span></span></p>
+          <p class="how_muth">You have: <span></span> tasks</p>
+          <p class="you_theme">You theme: <span></span></p>
         </div>
       </div>
     </header>
@@ -179,7 +179,26 @@
           </div>
         </div>
       </div>
-      <div id="main_side"></div>
+      <div id="main_side">
+        <div id="today">
+          <p>Сегодня: <span></span></p>
+        </div>
+        <div id="add_new_task">
+            <div id="new_task_filling">
+                5555555555
+            </div>
+          <div class="new_task_button">
+            <svg width="13" height="13" class="title_plus">
+              <path
+                d="M6 6V.5a.5.5 0 0 1 1 0V6h5.5a.5.5 0 1 1 0 1H7v5.5a.5.5 0 1 1-1 0V7H.5a.5.5 0 0 1 0-1H6z"
+                fill="currentColor"
+                fill-rule="evenodd"
+              ></path>
+            </svg>
+            <p>Добавить задачу</p>
+          </div>
+        </div>
+      </div>
     </main>
 
     <script src="js/script.js"></script>

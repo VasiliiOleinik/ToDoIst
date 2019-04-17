@@ -16,7 +16,11 @@ let showProjects = document.querySelector("#projects .title_block"), // Шапк
     myBody = document.querySelector("body"), // Список тем
 
     howMutchTasks = document.querySelector(".how_muth span"), // Сколько всего задач
-    youTheme = document.querySelector(".you_theme span"); // Текущая тема
+    youTheme = document.querySelector(".you_theme span"), // Текущая тема
+    today = document.querySelector("#today span"), // Текущая дата
+
+    addNewTask = document.querySelector("#add_new_task .new_task_button"),// Добавить новое событие
+    newTaskFilling = document.getElementById("new_task_filling"); // Заполнение нового события
 
 
 let orangeTheme = document.getElementById("orange"),
@@ -52,6 +56,7 @@ showThemes.addEventListener("click", () => {
 });
 
 // Переключечние тем
+youTheme.textContent = myBody.className;
 themesElem.forEach(function (item) {
     item.addEventListener("click", () => {
         myBody.className = "";
@@ -72,4 +77,32 @@ themesElem.forEach(function (item) {
             youTheme.textContent = myBody.className;
         }
     });
+});
+
+//Записать текущую дату
+var date = new Date();
+var currDate = date.getDate() + 1;
+var currMonth = date.getMonth() + 1;
+var currYear = date.getFullYear();
+
+function getWeekDay(date) {
+    var days = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'];
+    return days[date.getDay()];
+}
+
+function getMonthName(date) {
+    var months = ['Декабрь', 'Январь', 'Фефраль', 'Март', 'Апрель', 'Март', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь'];
+    return months[date.getMonth()];
+}
+
+today.textContent = getWeekDay(date) + ". " + currYear.toString() + " " + getMonthName(date);
+
+
+// Добавление нового события
+addNewTask.addEventListener("click", () => {
+    if(newTaskFilling.classList.contains('expanded')){
+        newTaskFilling.classList.remove("expanded");
+    } else {
+        newTaskFilling.classList.add("expanded");
+    }
 });

@@ -80,7 +80,7 @@ main {
 main #left_side {
     width: 265px;
     padding-left: 30px;
-    padding-top: 50px;
+    padding-top: 80px;
     position: fixed;
     overflow-x: hidden;
     overflow-y: hidden;
@@ -225,4 +225,65 @@ main #main_side {
     width: calc(100% - 265px);
     box-sizing: border-box;
     min-height: 1000px;
+}
+main #main_side #today{
+    font-size:20px;
+    color: #333;
+}
+main #main_side #today span{
+    font-size: 16px;
+}
+
+#add_new_task,
+#add_new_task .title_plus,
+#add_new_task p,
+#add_new_task p:before{
+    -moz-transition: color .2s, background-color .2s, fill .2s, border-color .2s;
+    -ms-transition: color .2s, background-color .2s, fill .2s, border-color .2s;
+    transition: color .2s, background-color .2s, fill .2s, border-color .2s;
+}
+#add_new_task .new_task_button{
+    width:100%;
+    display:flex;
+    height:40px;
+    align-items: center;
+    margin:15px 0px;
+    cursor: pointer;
+}
+
+#add_new_task .new_task_button .title_plus{
+    position: relative;
+    z-index:5;
+}
+
+#add_new_task .new_task_button p{
+    padding-left:10px;
+    position: relative;
+}
+#add_new_task .new_task_button p:before{
+    position: absolute;
+    content: "";
+    width: 20px;
+    height: 19px;
+    background: transparent;
+    border-radius: 50%;
+    display: block;
+    left: -17px;
+    top: -2px;
+    z-index: 1;
+}
+#add_new_task:hover .new_task_button p{
+    color:#dd4b39;
+}
+#add_new_task:hover .new_task_button p:before{
+    background: #dd4b39;
+}
+#add_new_task:hover .new_task_button .title_plus path{
+    fill:#fff;
+}
+#new_task_filling{
+   display:none;
+}
+#new_task_filling.expanded{
+    display: flex;
 }
