@@ -18,7 +18,8 @@ body {
 
 header {
     width: 100%;
-    height: 44px;
+    height: 60px;
+    ;
     top: 0;
     position: fixed;
     z-index: 200;
@@ -38,12 +39,32 @@ header .main_title {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
 }
 
 header .main_title p {
     font-size: 18px;
     color: #fff;
     font-weight: bold;
+    display: flex;
+    margin: 0;
+}
+
+header .info {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+header .info p {
+    font-size: 14px;
+}
+
+header .info p span {
+    display: inline-block;
+    margin-left: 5px;
+    text-transform: capitalize;
 }
 
 main {
@@ -69,7 +90,8 @@ main #left_side {
     box-sizing: border-box;
 }
 
-main #left_side #projects {
+main #left_side #projects,
+main #left_side #filters {
     margin: 0;
     -webkit-transition: margin 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
     transition: margin 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
@@ -81,6 +103,11 @@ main #left_side #projects {
     padding: 12.5px 0 12.5px 0;
 }
 
+
+
+
+
+/*** Общие стили для левых табов ***/
 .title_block .title_arrow {
     display: block;
     fill: rgba(0, 0, 0, 0.54);
@@ -91,11 +118,6 @@ main #left_side #projects {
     transition: -webkit-transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
     transition: transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
     transition: transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, -webkit-transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-}
-
-main #left_side .project_expanded .title_block .title_arrow {
-    -webkit-transform: rotate(0);
-    transform: rotate(0);
 }
 
 .title_block {
@@ -125,24 +147,79 @@ main #left_side .project_expanded .title_block .title_arrow {
     margin: 0;
 }
 
-main #left_side .project_contain {
-    height: 0;
+main #left_side .project_contain,
+main #left_side .filters_contain,
+main #left_side .themes_contain {
+    opacity: 0;
+    max-height: 0;
     overflow: hidden;
-    -webkit-transition: height 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-    transition: height 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    -moz-transition: opacity .3s, max-height .3s;
+    -ms-transition: opacity .3s, max-height .3s;
+    transition: opacity .3s, max-height .3s;
     border-bottom: 1px solid #f1f1f1;
 }
 
-main #left_side .project_elem {
-    height: 35px;
+main #left_side .expanded .project_contain,
+main #left_side .expanded .filters_contain,
+main #left_side .expanded .themes_contain {
+    max-height: 500px;
+    opacity: 1;
+    -moz-transition: opacity .3s, max-height 1s;
+    -ms-transition: opacity .3s, max-height 1s;
+    transition: opacity .3s, max-height 1s;
 }
 
+main #left_side .expanded .title_block .title_arrow {
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+}
 
+main #left_side .project_elem,
+main #left_side .filters_elem,
+main #left_side .themes_elem {
+    height: 35px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
 
+/*** Общие стили для левых табов ***/
 
+/*** Общие стили тем ***/
+main #left_side .themes_elem .themes_label {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: red;
+    margin-right: 10px;
+    border: 1px solid #fff;
+}
+
+main #left_side #dark .themes_label {
+    background-color: #282828;
+}
+
+main #left_side #orange .themes_label {
+    background-color: #e98300;
+}
+
+main #left_side #green .themes_label {
+    background-color: #3c9b0d;
+}
+
+main #left_side #blue .themes_label {
+    background-color: #316fea;
+}
+
+main #left_side #white .themes_label {
+    border: 1px solid #282828;
+    background-color: #f7f7f7;
+}
+
+/*** Стили для основного контента ***/
 main #main_side {
     background-color: #fff;
-    margin-left: 284px;
+    margin-left: 265px;
     border-right: 1px solid #f1f1f1;
     padding: 80px 25px 85px 30px;
     width: calc(100% - 265px);

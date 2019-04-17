@@ -10,11 +10,16 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/themes.css" />
   </head>
   <body>
     <header>
       <div class="main_title">
-        <p>Wellcome! It`s Oleinik ToDoIst v0.1</p>
+        <p>Wellcome! It`s Oleinik ToDoIst v0.2</p>
+        <div class="info">
+            <p class="how_muth">You have: <span></span> tasks</p>
+            <p class="you_theme">You theme: <span></span></p>
+        </div>
       </div>
     </header>
     <main>
@@ -111,6 +116,64 @@
                 <p class="filters_name_txt">
                   Personal <span class="filters_name_count">1</span>
                 </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="themes">
+          <div class="title_block">
+            <svg
+              width="12px"
+              height="6px"
+              viewBox="0 0 12 6"
+              class="title_arrow"
+            >
+              <g transform="translate(-396.000000, -235.000000)" fill="#777777">
+                <g transform="translate(128.000000, 213.000000)">
+                  <path
+                    d="M280,22.7581818 L279.1564,22 L273.9922,26.506 L273.4414,26.0254545 L273.4444,26.0281818 L268.8562,22.0245455 L268,22.7712727 C269.2678,23.878 272.8084,26.9674545 273.9922,28 C274.8718,27.2330909 274.0144,27.9809091 280,22.7581818"
+                  ></path>
+                </g>
+              </g>
+            </svg>
+            <p class="title">Темы</p>
+            <svg width="13" height="13" class="title_plus">
+              <path
+                d="M6 6V.5a.5.5 0 0 1 1 0V6h5.5a.5.5 0 1 1 0 1H7v5.5a.5.5 0 1 1-1 0V7H.5a.5.5 0 0 1 0-1H6z"
+                fill="currentColor"
+                fill-rule="evenodd"
+              ></path>
+            </svg>
+          </div>
+          <div class="themes_contain">
+            <div class="themes_elem" id="dark">
+              <div class="themes_label"></div>
+              <div class="themes_name">
+                <p class="themes_name_txt">Dark</p>
+              </div>
+            </div>
+            <div class="themes_elem" id="orange">
+              <div class="themes_label"></div>
+              <div class="themes_name">
+                <p class="themes_name_txt">Orange</p>
+              </div>
+            </div>
+            <div class="themes_elem" id="green">
+              <div class="themes_label"></div>
+              <div class="themes_name">
+                <p class="themes_name_txt">Green</p>
+              </div>
+            </div>
+            <div class="themes_elem" id="blue">
+              <div class="themes_label"></div>
+              <div class="themes_name">
+                <p class="themes_name_txt">Blue</p>
+              </div>
+            </div>
+            <div class="themes_elem" id="white">
+              <div class="themes_label"></div>
+              <div class="themes_name">
+                <p class="themes_name_txt">White</p>
               </div>
             </div>
           </div>

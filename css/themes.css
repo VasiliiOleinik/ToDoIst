@@ -1,0 +1,212 @@
+header,
+body,
+#left_side,
+#main_side,
+.title_block .title,
+main #left_side #projects,
+main #left_side #filters,
+.title_plus,
+.title_block {
+    -moz-transition: color .2s, background-color .3s, fill .2s, border-color .2s;
+    -ms-transition: color .2s, background-color .3s, fill .2s, border-color .2s;
+    transition: color .2s, background-color .3s, fill .2s, border-color .2s;
+}
+
+/*** DARK ***/
+.dark header {
+    background-color: #282828;
+}
+
+body.dark {
+    background-color: #282828;
+    color: #fff;
+}
+
+.dark #left_side {
+    background-color: #282828;
+}
+
+.dark #main_side {
+    background-color: #1f1f1f;
+}
+
+.dark .title_block .title {
+    color: #fff;
+}
+
+.dark main #left_side #projects,
+.dark main #left_side #filters {
+    background-color: #282828;
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark main #left_side .project_contain,
+.dark main #left_side .filters_contain,
+.dark main #left_side .themes_contain,
+.dark .title_block {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark .title_plus path {
+    fill: #fff;
+}
+
+/*** ORANGE ***/
+.orange header {
+    background-color: #e98300;
+}
+
+body.orange {
+    background-color: #fafafa;
+    color: #333;
+}
+
+.orange #left_side {
+    background-color: #fafafa;
+}
+
+.orange #main_side {
+    background-color: #fff;
+}
+
+.orange .title_block .title {
+    color: #333;
+}
+
+.orange main #left_side #projects,
+.orange main #left_side #filters {
+    background-color: #fafafa;
+    border-color: #f1f1f1;
+}
+
+.orange main #left_side .project_contain,
+.orange main #left_side .filters_contain,
+.orange main #left_side .themes_contain,
+.orange .title_block {
+    border-color: #f1f1f1;
+}
+
+.orange .title_plus path {
+    fill: #333;
+}
+
+/*** GREEN ***/
+.green header {
+    background-color: #3c9b0d;
+}
+
+body.green {
+    background-color: #dfeada;
+    color: #333;
+}
+
+.green #left_side {
+    background-color: #dfeada;
+}
+
+.green #main_side {
+    background-color: #fff;
+}
+
+.green .title_block .title {
+    color: #333;
+}
+
+.green main #left_side #projects,
+.green main #left_side #filters {
+    background-color: #dfeada;
+    border-color: #c0e4af;
+}
+
+.green main #left_side .project_contain,
+.green main #left_side .filters_contain,
+.green main #left_side .themes_contain,
+.green .title_block {
+    border-color: #c0e4af;
+}
+
+.green .title_plus path {
+    fill: #333;
+}
+
+/*** BLUE ***/
+.blue header {
+    background-color: #316fea;
+}
+
+body.blue {
+    background-color: #d4ddef;
+    color: #333;
+}
+
+.blue #left_side {
+    background-color: #d4ddef;
+}
+
+.blue #main_side {
+    background-color: #fff;
+}
+
+.blue .title_block .title {
+    color: #333;
+}
+
+.blue main #left_side #projects,
+.blue main #left_side #filters {
+    background-color: #d4ddef;
+    border-color: #bdcef1;
+}
+
+.blue main #left_side .project_contain,
+.blue main #left_side .filters_contain,
+.blue main #left_side .themes_contain,
+.blue .title_block {
+    border-color: #bdcef1;
+}
+
+.blue .title_plus path {
+    fill: #333;
+}
+
+/*** WHITE ***/
+.white header {
+    background-color: #f7f7f7;
+}
+
+body.white {
+    background-color: #fafafa;
+    color: #333;
+}
+
+.white #left_side {
+    background-color: #fafafa;
+}
+
+.white #main_side {
+    background-color: #fff;
+}
+
+.white .title_block .title {
+    color: #333;
+}
+
+.white main #left_side #projects,
+.white main #left_side #filters {
+    background-color: #fafafa;
+    border-color: #f1f1f1;
+}
+
+.white main #left_side .project_contain,
+.white main #left_side .filters_contain,
+.white main #left_side .themes_contain,
+.white .title_block {
+    border-color: #f1f1f1;
+}
+
+.white .title_plus path {
+    fill: #333;
+}
+
+.white header .main_title p {
+    color: #333;
+}
