@@ -19,8 +19,14 @@ let showProjects = document.querySelector("#projects .title_block"), // Шапк
     youTheme = document.querySelector(".you_theme span"), // Текущая тема
     today = document.querySelector("#today span"), // Текущая дата
 
-    addNewTask = document.querySelector("#add_new_task .new_task_button"),// Добавить новое событие
-    newTaskFilling = document.getElementById("new_task_filling"); // Заполнение нового события
+    addNewTask = document.querySelector("#add_new_task"),
+    addNewTaskBtn = document.querySelector("#add_new_task .new_task_button"), // Добавить новое событие
+    newTaskFilling = document.getElementById("new_task_filling"), // Заполнение нового события
+    newTaskDate = document.querySelector(".new_task_date p"), // Дата в заполнении события
+    textEditor = document.querySelector(".text_editor"), // Поле вводв текста
+    cancel = document.querySelector(".cancel"), // Отмена добавления
+    add = document.querySelector(".add"), // Добавить событие
+    tasksList = document.querySelector(".tasks_list"); // Список всех задач
 
 
 let orangeTheme = document.getElementById("orange"),
@@ -96,13 +102,38 @@ function getMonthName(date) {
 }
 
 today.textContent = getWeekDay(date) + ". " + currYear.toString() + " " + getMonthName(date);
-
+newTaskDate.textContent = currDate + " " + getMonthName(date);
 
 // Добавление нового события
-addNewTask.addEventListener("click", () => {
-    if(newTaskFilling.classList.contains('expanded')){
+addNewTaskBtn.addEventListener("click", () => {
+    textEditor.textContent = "";
+    if (newTaskFilling.classList.contains('expanded')) {
         newTaskFilling.classList.remove("expanded");
+        addNewTaskBtn.classList.add("show");
+        addNewTaskBtn.classList.remove("hide");
     } else {
         newTaskFilling.classList.add("expanded");
+        addNewTaskBtn.classList.remove("show");
+        addNewTaskBtn.classList.add("hide");
+    }
+});
+
+// Закрыть форму добавления события
+cancel.addEventListener("click", () => {
+    newTaskFilling.classList.remove("expanded");
+    addNewTaskBtn.classList.add("show");
+    addNewTaskBtn.classList.remove("hide");
+});
+
+add.addEventListener("click", () => {
+    let taskText = textEditor.textContent,
+        taskListItem = document.createElement("div");
+        taskListItem.classList.add("task_list_item");
+    if (textEditor.textContent != "") {
+        taskListItem.innerHTML = taskText;
+        tasksList.appendChild(taskListItem);
+        newTaskFilling.classList.remove("expanded");
+        addNewTaskBtn.classList.add("show");
+        addNewTaskBtn.classList.remove("hide");
     }
 });
