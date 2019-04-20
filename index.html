@@ -169,6 +169,7 @@
                     <div class="add_content">
                         <div class="text_box">
                             <div class="text_editor" tabindex="1" autocomplete="off" contenteditable="true"></div>
+                            <span class="event_color dark" data-you-color="dark"></span>
                         </div>
                         <div class="new_task_date">
                             <p></p>
@@ -206,8 +207,35 @@
                             <div class="cancel">Отмена</div>
                         </div>
                         <div class="right_side">
-                            <div class="choose_priority">Добавить задачу</div>
-                            <div class="choose_color">Отмена</div>
+                            <div class="choose_priority"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                    width="24" height="24" data-svgs-path="sm1/priority_flag.svg">
+                                    <g fill="none" fill-rule="evenodd">
+                                        <path d="M0 0h24v24H0z"></path>
+                                        <g fill="currentColor">
+                                            <path d="M5 5.5L6 5v14.5a.5.5 0 0 1-.5.5.5.5 0 0 1-.5-.5v-14z"></path>
+                                            <path fill-rule="nonzero"
+                                                d="M5 13.51V5.29l.26-.15c.17-.09.46-.21.88-.33 1.62-.47 3.65-.46 6.02.31a11.9 11.9 0 0 0 6.91.15l.21-.06.09-.02.1-.01c.18-.05.18-.05.51.5l.01 8.29-.32.12c-.2.08-.58.2-1.09.31a12.7 12.7 0 0 1-6.74-.33 9.2 9.2 0 0 0-5.43-.3 3.66 3.66 0 0 0-.67.25.5.5 0 0 1-.74-.47.5.5 0 0 1 0-.04zm1.14-.7a10.2 10.2 0 0 1 6.02.31 11.72 11.72 0 0 0 6.83.15V6.32a12.63 12.63 0 0 1-.47.11c-2.08.43-4.34.4-6.68-.36A9.2 9.2 0 0 0 6 5.91v6.94l.14-.04z">
+                                            </path>
+                                        </g>
+                                    </g>
+                                </svg>
+
+                                <div class="choose_priority_modal">
+                                    <div class="choose_priority_item" id="dark" data-color="dark"></div>
+                                    <div class="choose_priority_item" id="orange" data-color="orange"></div>
+                                    <div class="choose_priority_item" id="green" data-color="green"></div>
+                                    <div class="choose_priority_item" id="blue" data-color="blue"></div>
+                                    <div class="choose_priority_item" id="red" data-color="red"></div>
+                                </div>
+
+                            </div>
+                            <div class="choose_project"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                    width="24" height="24" data-svgs-path="sm1/project.svg">
+                                    <path fill="currentColor" fill-rule="evenodd"
+                                        d="M6 8a1 1 0 0 0-1 1v8c0 .5.5 1 1 1h12a1 1 0 0 0 1-1V9c0-.5-.5-1-1-1H6zM4 7c0-1.1.9-2 2-2h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7zm3 4h10v1H7v-1zm0 3h10v1H7v-1z">
+                                    </path>
+                                </svg></div>
+                            <!-- <div class="choose_color"></div> -->
                         </div>
                     </div>
                 </div>
