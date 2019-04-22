@@ -477,27 +477,27 @@ main #main_side #today span {
 }
 
 #new_task_filling .text_box .event_color.dark,
-.choose_priority_item#dark {
+.choose_color_item#dark {
     background: #282828;
 }
 
 #new_task_filling .text_box .event_color.orange,
-.choose_priority_item#orange {
+.choose_color_item#orange {
     background: #e98300;
 }
 
 #new_task_filling .text_box .event_color.green,
-.choose_priority_item#green {
+.choose_color_item#green {
     background: #3c9b0d;
 }
 
 #new_task_filling .text_box .event_color.blue,
-.choose_priority_item#blue {
+.choose_color_item#blue {
     background: #316fea;
 }
 
 #new_task_filling .text_box .event_color.red,
-.choose_priority_item#red {
+.choose_color_item#red {
     background: #db4c3f;
 }
 
@@ -550,7 +550,7 @@ main #main_side #today span {
     box-sizing: border-box;
 }
 
-#new_task_filling .add_new_task_settings .right_side .choose_priority {
+#new_task_filling .add_new_task_settings .right_side .choose_color {
     position: relative;
     width: 50%;
     display: flex;
@@ -559,7 +559,7 @@ main #main_side #today span {
     cursor: pointer;
 }
 
-#new_task_filling .add_new_task_settings .right_side .choose_priority .choose_priority_modal {
+#new_task_filling .add_new_task_settings .right_side .choose_color .choose_color_modal {
     width: 200px;
     height: 50px;
     position: absolute;
@@ -582,7 +582,7 @@ main #main_side #today span {
     cursor: default;
 }
 
-#new_task_filling .add_new_task_settings .right_side .choose_priority .choose_priority_modal .choose_priority_item {
+#new_task_filling .add_new_task_settings .right_side .choose_color .choose_color_modal .choose_color_item {
     display: flex;
     width: 20px;
     height: 20px;
@@ -593,6 +593,62 @@ main #main_side #today span {
     border-radius: 50%;
     border: 1px solid #ddd;
     margin: 0px 2.5px;
+}
+
+#new_task_filling .add_new_task_settings .right_side .choose_priority{
+    position: relative;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+#new_task_filling .add_new_task_settings .right_side .choose_priority .choose_priority_modal {
+    width: 200px;
+    height: auto;
+    position: absolute;
+    top: 30px;
+    font-size: 16px;
+    left: calc(50% - 85px);
+    background-color: #fff;
+    z-index: 505;
+    color: #333;
+    border-collapse: separate;
+    border-radius: 3px;
+    box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.08);
+    border: 1px solid #ddd;
+    display: none;
+    align-items: center;
+    padding: 5px;
+    box-sizing: border-box;
+    outline: none;
+    justify-content: space-between;
+    cursor: default;
+    flex-direction: column;
+}
+
+#new_task_filling .add_new_task_settings .right_side .choose_priority .choose_priority_modal .choose_priority_item {
+    display: flex;
+    width: 100%;
+    height: 30px;
+    align-items: center;
+    outline: none;
+    cursor: pointer;
+    margin-bottom: 15px;
+    padding:0px 5px;
+    -moz-transition: background-color .3s;
+    -ms-transition: background-color .3s;
+    transition: background-color .3s;
+}
+#new_task_filling .add_new_task_settings .right_side .choose_priority .choose_priority_modal .choose_priority_item:hover{
+    background-color:#f5f3f3;
+    -moz-transition: background-color .3s;
+    -ms-transition: background-color .3s;
+    transition: background-color .3s;
+}
+#new_task_filling .add_new_task_settings .right_side .choose_priority .choose_priority_modal .choose_priority_item:last-child{
+    margin-bottom:0px;
 }
 
 .tasks_list {
@@ -682,7 +738,48 @@ main #main_side #today span {
     color: #333;
     font-size: 14px;
 }
-
+.tasks_list .task_list_item .task_item_info .delete_task{
+    width: 180px;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    border: 1px solid #9a9a9a;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    margin: 0 auto;
+    border-radius: 3px;
+    position:relative;
+    cursor:pointer;
+    -moz-transition: border-radius .3s;
+    -ms-transition:border-radius .3s;
+    transition:border-radius .3s;
+}
+.tasks_list .task_list_item .task_item_info .delete_task:before{
+    content: "→";
+    position: absolute;
+    left: -14px;
+    font-size: 24px;
+    transition: .3s;
+}
+.tasks_list .task_list_item .task_item_info .delete_task:after{
+    content: "←";
+    position: absolute;
+    right: -14px;
+    font-size: 24px;
+    transition: .3s;
+}
+.tasks_list .task_list_item .task_item_info .delete_task:hover{
+    border-radius: 20px;
+}
+.tasks_list .task_list_item .task_item_info .delete_task:hover:before{
+    left: -5px;
+    transition: .3s;
+}
+.tasks_list .task_list_item .task_item_info .delete_task:hover:after{
+    right: -5px;
+    transition: .3s;
+}
 .tasks_list .task_list_item .task_item_info div:last-child {
     margin-bottom: 0px;
 }

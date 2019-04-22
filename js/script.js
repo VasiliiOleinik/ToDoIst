@@ -18,10 +18,18 @@ let showProjects = document.querySelector("#projects .title_block"), // Шапк
   changeDate = document.querySelector(".adoption_date.yes"), // Принять изменение даты
   cancelDate = document.querySelector(".adoption_date.no"), // Отменить изменение даты
   newDateModal = document.querySelector(".new_task_date_modal"), // Модалка с датой
-  choosePriority = document.querySelector(".choose_priority"), // Кнопка приоритетов
-  choosePriorityModal = document.querySelector(".choose_priority_modal"), // Модалка приоритетов
-  choosePriorityItem = document.querySelectorAll(".choose_priority_item"), // Элемент приоритетов
+
+  chooseColor = document.querySelector(".choose_color"), // Кнопка цветов
+  chooseColorModal = document.querySelector(".choose_color_modal"), // Модалка цветов
+  chooseColorItem = document.querySelectorAll(".choose_color_item"), // Элемент цветов
   eventColor = document.querySelector(".event_color"), // Цвет события
+
+  choosePriority = document.querySelector(".choose_priority"), // Кнопка цветов
+  choosePriorityModal = document.querySelector(".choose_priority_modal"), // Модалка цветов
+  choosePriorityItem = document.querySelectorAll(".choose_priority_item"), // Элемент цветов
+  eventPriority = document.querySelector(".event_priority"), // Цвет события
+
+
   addNewTask = document.querySelector("#add_new_task"),
   addNewTaskBtn = document.querySelector("#add_new_task .new_task_button"), // Добавить новое событие
   newTaskFilling = document.getElementById("new_task_filling"), // Заполнение нового события
@@ -38,7 +46,6 @@ const appData = {
     color: "",
     project: "",
     date: "",
-    label: "",
     text: ""
   }
 };
@@ -73,7 +80,7 @@ showThemes.addEventListener("click", () => {
 // Переключечние тем
 youTheme.textContent = myBody.className;
 appData.theme = youTheme.textContent;
-themesElem.forEach(function(item) {
+themesElem.forEach(function (item) {
   item.addEventListener("click", () => {
     myBody.className = "";
     if (item.id == "dark") {
@@ -107,8 +114,8 @@ var currMonth = date.getMonth();
 var currYear = date.getFullYear();
 
 function getWeekDay(date) {
-  var days = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"];
-  return days[date.getDay() - 1];
+  var days = ["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"];
+  return days[date.getDay()];
 }
 
 function getMonthName(date) {
@@ -160,23 +167,19 @@ changeDate.addEventListener("click", () => {
   }
 });
 
-// choosePriority = document.querySelector(".choose_priority"), // Кнопка приоритетов
-//     choosePriorityModal = document.querySelector(".choose_priority_modal"), // Модалка приоритетов
-//     choosePriorityItem = document.querySelector(".choose_priority_item"), // Элемент приоритетов
-
-// Открыть модалку приоритетов
-choosePriority.addEventListener("click", () => {
-  if (choosePriorityModal.classList.contains("show")) {
-    choosePriorityModal.classList.remove("show");
+// Открыть модалку цветов
+chooseColor.addEventListener("click", () => {
+  if (chooseColorModal.classList.contains("show")) {
+    chooseColorModal.classList.remove("show");
   } else {
-    choosePriorityModal.classList.add("show");
+    chooseColorModal.classList.add("show");
   }
 });
 
 // Переключечние цветов
 appData.event.color = eventColor.getAttribute("data-you-color");
 var changeColor;
-choosePriorityItem.forEach(function(item) {
+chooseColorItem.forEach(function (item) {
   item.addEventListener("click", () => {
     eventColor.className = "";
     if (item.getAttribute("data-color") == "dark") {
@@ -208,6 +211,36 @@ choosePriorityItem.forEach(function(item) {
   });
 });
 
+// Открыть модалку приоритетов
+choosePriority.addEventListener("click", () => {
+  if (choosePriorityModal.classList.contains("show")) {
+    choosePriorityModal.classList.remove("show");
+  } else {
+    choosePriorityModal.classList.add("show");
+  }
+});
+
+// Переключечние приоритетов
+var priorityVal;
+choosePriorityItem.forEach(function (item) {
+  item.addEventListener("click", () => {
+    if (item.getAttribute("data-priority") == "very-hight") {
+      priorityVal = item.textContent || item.innerText;
+      appData.event.priority = priorityVal;
+    } else if (item.getAttribute("data-priority") == "hight") {
+      priorityVal = item.textContent || item.innerText;
+      appData.event.priority = priorityVal;
+    } else if (item.getAttribute("data-priority") == "medium") {
+      priorityVal = item.textContent || item.innerText;
+      appData.event.priority = priorityVal;
+    } else if (item.getAttribute("data-priorityr") == "light") {
+      priorityVal = item.textContent || item.innerText;
+      appData.event.priority = priorityVal;
+    }
+  });
+});
+
+
 // Добавление нового события
 addNewTaskBtn.addEventListener("click", () => {
   textEditor.textContent = "";
@@ -233,6 +266,7 @@ cancel.addEventListener("click", () => {
 add.addEventListener("click", () => {
   let taskText = textEditor.textContent,
     taskListItem = document.createElement("div"), // Задача
+    deleteTask = document.createElement("div"), // Удалить задачу
     taskItemText = document.createElement("div"), // Текст задачи
     tasnkInfoShow = document.createElement("div"), // Скрыть - показать инфо
     taskItemInfo = document.createElement("div"), // Блок с информацией
@@ -248,14 +282,16 @@ add.addEventListener("click", () => {
   taskInfoPriority.classList.add("task_info_priority");
   taskInfoProject.classList.add("task_info_project");
   tasnkInfoShow.classList.add("task_info_show");
+  deleteTask.classList.add("delete_task");
   if (textEditor.textContent != "") {
     taskItemText.innerHTML = taskText;
     taskItemText.appendChild(tasnkInfoShow);
 
     taskInfoColor.textContent = "Цвет: " + appData.event.color;
     taskInfoDate.textContent = "Дата: " + appData.event.date;
-    taskInfoPriority.textContent = "Приоритет: ";
+    taskInfoPriority.textContent = "Приоритет: " + appData.event.priority;
     taskInfoProject.textContent = "Проект: ";
+    deleteTask.textContent = "Удалить событие";
 
     tasnkInfoShow.style.borderColor = appData.event.color;
 
@@ -266,28 +302,35 @@ add.addEventListener("click", () => {
     taskItemInfo.appendChild(taskInfoPriority);
     taskItemInfo.appendChild(taskInfoProject);
     tasksList.appendChild(taskListItem);
+    taskItemInfo.appendChild(deleteTask);
     newTaskFilling.classList.remove("expanded");
     addNewTaskBtn.classList.add("show");
     addNewTaskBtn.classList.remove("hide");
     appData.event.text = taskText;
-  }
 
+
+  }
+  // Показать детали события
   tasnkInfoShow.addEventListener("click", () => {
-    console.log("dddd");
     if (taskItemInfo.classList.contains("expanded")) {
       taskItemInfo.classList.remove("expanded");
     } else {
       taskItemInfo.classList.add("expanded");
     }
   });
+  // Удаление события
+  deleteTask.addEventListener("click", () => {
+    deleteTask.parentNode.parentNode.remove();
+  });
 });
+
+
 
 console.log(appData);
 
 /* 
 Дата +
 Текст + 
-Метка - 
 Приоритет - 
 Цвет +
 Проект - 
