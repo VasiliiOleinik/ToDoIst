@@ -29,6 +29,10 @@ let showProjects = document.querySelector("#projects .title_block"), // Шапк
   choosePriorityItem = document.querySelectorAll(".choose_priority_item"), // Элемент цветов
   eventPriority = document.querySelector(".event_priority"), // Цвет события
 
+  projectList = document.querySelectorAll(".project_name_txt"), // Список проектов
+  chooseProject = document.querySelector(".choose_project"), // Кнопка проектов
+  chooseModalProject = document.querySelectorAll(".choose_project_modal"), // Модалка проектов
+
 
   addNewTask = document.querySelector("#add_new_task"),
   addNewTaskBtn = document.querySelector("#add_new_task .new_task_button"), // Добавить новое событие
@@ -238,6 +242,23 @@ choosePriorityItem.forEach(function (item) {
       appData.event.priority = priorityVal;
     }
   });
+});
+
+// Выбор проекта
+var projectData = {},
+    projectDetail = {};
+projectList.forEach(function (item, i) {
+  projectData = item.getAttribute("data-project"),
+    projectDetail = item.textContent;
+});
+// Возвращает только последние если вне форыча
+
+chooseProject.addEventListeners("click", () => {
+  let chooseProjectItem = document.createElement("div"); // Создание проекта в модалке
+  chooseProjectItem.classList.add("choose_project_item");
+  chooseProjectItem.setAttribute("data-project", projectData);
+  chooseProjectItem.textContent = projectDetail;
+  chooseModalProject.appendChild(chooseProjectItem);
 });
 
 
