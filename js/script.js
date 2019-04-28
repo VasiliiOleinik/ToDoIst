@@ -31,7 +31,7 @@ let showProjects = document.querySelector("#projects .title_block"), // Шапк
 
   projectList = document.querySelectorAll(".project_name_txt"), // Список проектов
   chooseProject = document.querySelector(".choose_project"), // Кнопка проектов
-  chooseModalProject = document.querySelectorAll(".choose_project_modal"), // Модалка проектов
+  chooseModalProject = document.querySelector(".choose_project_modal"), // Модалка проектов
 
 
   addNewTask = document.querySelector("#add_new_task"),
@@ -245,21 +245,52 @@ choosePriorityItem.forEach(function (item) {
 });
 
 // Выбор проекта
-var projectData = {},
-    projectDetail = {};
+var projectData = "", // Беру дата атрибут
+  projectDetail = "", // Беру текст
+  chooseProjectItem = "";
 projectList.forEach(function (item, i) {
-  projectData = item.getAttribute("data-project"),
-    projectDetail = item.textContent;
-});
-// Возвращает только последние если вне форыча
-
-chooseProject.addEventListeners("click", () => {
-  let chooseProjectItem = document.createElement("div"); // Создание проекта в модалке
+  projectData = item.getAttribute("data-project");
+  projectDetail = item.textContent;
+  chooseProjectItem = document.createElement("div"); //Создаю список в модалке
   chooseProjectItem.classList.add("choose_project_item");
   chooseProjectItem.setAttribute("data-project", projectData);
   chooseProjectItem.textContent = projectDetail;
   chooseModalProject.appendChild(chooseProjectItem);
+
 });
+chooseProject.addEventListener("click", () => {
+  if (chooseModalProject.classList.contains("show")) {
+    chooseModalProject.classList.remove("show");
+  } else {
+    chooseModalProject.classList.add("show");
+  }
+});
+
+var projectModalNewList = chooseModalProject.querySelectorAll(".choose_project_item");
+var projectVal;
+
+projectModalNewList.forEach(function (item, i) {
+  item.addEventListener("click", () => {
+    if (item.getAttribute("data-project") == "personal") {
+      //projectVal = item.getAttribute("data-project");
+      projectVal = item.textContent;
+      appData.event.project = projectVal;
+    } else if (item.getAttribute("data-project") == "work") {
+      //projectVal = item.getAttribute("data-project");
+      projectVal = item.textContent;
+      appData.event.project = projectVal;
+    } else if (item.getAttribute("data-project") == "hobby") {
+      //projectVal = item.getAttribute("data-project");
+      projectVal = item.textContent;
+      appData.event.project = projectVal;
+    } else if (item.getAttribute("data-project") == "purchases") {
+      //projectVal = item.getAttribute("data-project");
+      projectVal = item.textContent;
+      appData.event.project = projectVal;
+    }
+  });
+});
+
 
 
 // Добавление нового события
@@ -311,7 +342,7 @@ add.addEventListener("click", () => {
     taskInfoColor.textContent = "Цвет: " + appData.event.color;
     taskInfoDate.textContent = "Дата: " + appData.event.date;
     taskInfoPriority.textContent = "Приоритет: " + appData.event.priority;
-    taskInfoProject.textContent = "Проект: ";
+    taskInfoProject.textContent = "Проект: " + appData.event.project;
     deleteTask.textContent = "Удалить событие";
 
     tasnkInfoShow.style.borderColor = appData.event.color;

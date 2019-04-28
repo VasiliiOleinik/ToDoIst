@@ -651,6 +651,61 @@ main #main_side #today span {
     margin-bottom:0px;
 }
 
+#new_task_filling .add_new_task_settings .right_side .choose_project{
+    position: relative;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+#new_task_filling .add_new_task_settings .right_side .choose_project .choose_project_modal {
+    width: 200px;
+    height: auto;
+    position: absolute;
+    top: 30px;
+    font-size: 16px;
+    left: calc(50% - 85px);
+    background-color: #fff;
+    z-index: 505;
+    color: #333;
+    border-collapse: separate;
+    border-radius: 3px;
+    box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.08);
+    border: 1px solid #ddd;
+    display: none;
+    align-items: center;
+    padding: 5px;
+    box-sizing: border-box;
+    outline: none;
+    justify-content: space-between;
+    cursor: default;
+    flex-direction: column;
+}
+
+#new_task_filling .add_new_task_settings .right_side .choose_project .choose_project_modal .choose_project_item {
+    display: flex;
+    width: 100%;
+    height: 30px;
+    align-items: center;
+    outline: none;
+    cursor: pointer;
+    margin-bottom: 15px;
+    padding:0px 5px;
+    -moz-transition: background-color .3s;
+    -ms-transition: background-color .3s;
+    transition: background-color .3s;
+}
+#new_task_filling .add_new_task_settings .right_side .choose_project .choose_project_modal .choose_project_item:hover{
+    background-color:#f5f3f3;
+    -moz-transition: background-color .3s;
+    -ms-transition: background-color .3s;
+    transition: background-color .3s;
+}
+#new_task_filling .add_new_task_settings .right_side .choose_project .choose_project_modal .choose_project_item:last-child{
+    margin-bottom:0px;
+}
 .tasks_list {
     display: flex;
     width: 100%;
