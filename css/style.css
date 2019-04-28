@@ -451,7 +451,6 @@ main #main_side #today span {
     width: 100%;
     display: inline-block;
     padding: 4px 6px 4px 15px;
-    ;
     -webkit-animation-name: effect-fade-in;
     animation-name: effect-fade-in;
     -webkit-animation-duration: 80ms;
@@ -470,7 +469,7 @@ main #main_side #today span {
     border-radius: 3px;
     display: flex;
     width: 10px;
-    height: 100%;
+    height: 96%;
     -moz-transition: background-color .3s;
     -ms-transition: background-color .3s;
     transition: background-color .3s;
@@ -595,7 +594,7 @@ main #main_side #today span {
     margin: 0px 2.5px;
 }
 
-#new_task_filling .add_new_task_settings .right_side .choose_priority{
+#new_task_filling .add_new_task_settings .right_side .choose_priority {
     position: relative;
     width: 50%;
     display: flex;
@@ -636,22 +635,24 @@ main #main_side #today span {
     outline: none;
     cursor: pointer;
     margin-bottom: 15px;
-    padding:0px 5px;
+    padding: 0px 5px;
     -moz-transition: background-color .3s;
     -ms-transition: background-color .3s;
     transition: background-color .3s;
-}
-#new_task_filling .add_new_task_settings .right_side .choose_priority .choose_priority_modal .choose_priority_item:hover{
-    background-color:#f5f3f3;
-    -moz-transition: background-color .3s;
-    -ms-transition: background-color .3s;
-    transition: background-color .3s;
-}
-#new_task_filling .add_new_task_settings .right_side .choose_priority .choose_priority_modal .choose_priority_item:last-child{
-    margin-bottom:0px;
 }
 
-#new_task_filling .add_new_task_settings .right_side .choose_project{
+#new_task_filling .add_new_task_settings .right_side .choose_priority .choose_priority_modal .choose_priority_item:hover {
+    background-color: #f5f3f3;
+    -moz-transition: background-color .3s;
+    -ms-transition: background-color .3s;
+    transition: background-color .3s;
+}
+
+#new_task_filling .add_new_task_settings .right_side .choose_priority .choose_priority_modal .choose_priority_item:last-child {
+    margin-bottom: 0px;
+}
+
+#new_task_filling .add_new_task_settings .right_side .choose_project {
     position: relative;
     width: 50%;
     display: flex;
@@ -692,20 +693,23 @@ main #main_side #today span {
     outline: none;
     cursor: pointer;
     margin-bottom: 15px;
-    padding:0px 5px;
+    padding: 0px 5px;
     -moz-transition: background-color .3s;
     -ms-transition: background-color .3s;
     transition: background-color .3s;
 }
-#new_task_filling .add_new_task_settings .right_side .choose_project .choose_project_modal .choose_project_item:hover{
-    background-color:#f5f3f3;
+
+#new_task_filling .add_new_task_settings .right_side .choose_project .choose_project_modal .choose_project_item:hover {
+    background-color: #f5f3f3;
     -moz-transition: background-color .3s;
     -ms-transition: background-color .3s;
     transition: background-color .3s;
 }
-#new_task_filling .add_new_task_settings .right_side .choose_project .choose_project_modal .choose_project_item:last-child{
-    margin-bottom:0px;
+
+#new_task_filling .add_new_task_settings .right_side .choose_project .choose_project_modal .choose_project_item:last-child {
+    margin-bottom: 0px;
 }
+
 .tasks_list {
     display: flex;
     width: 100%;
@@ -774,6 +778,7 @@ main #main_side #today span {
     -moz-transition: opacity .3s, max-height .3s;
     -ms-transition: opacity .3s, max-height .3s;
     transition: opacity .3s, max-height .3s;
+    position: relative;
 }
 
 .tasks_list .task_list_item .task_item_info.expanded {
@@ -793,7 +798,8 @@ main #main_side #today span {
     color: #333;
     font-size: 14px;
 }
-.tasks_list .task_list_item .task_item_info .delete_task{
+
+.tasks_list .task_list_item .task_item_info .delete_task {
     width: 180px;
     padding: 10px 20px;
     box-sizing: border-box;
@@ -804,37 +810,85 @@ main #main_side #today span {
     font-size: 16px;
     margin: 0 auto;
     border-radius: 3px;
-    position:relative;
-    cursor:pointer;
+    position: relative;
+    cursor: pointer;
     -moz-transition: border-radius .3s;
-    -ms-transition:border-radius .3s;
-    transition:border-radius .3s;
+    -ms-transition: border-radius .3s;
+    transition: border-radius .3s;
 }
-.tasks_list .task_list_item .task_item_info .delete_task:before{
+
+.tasks_list .task_list_item .task_item_info .delete_task:before {
     content: "→";
     position: absolute;
     left: -14px;
     font-size: 24px;
     transition: .3s;
 }
-.tasks_list .task_list_item .task_item_info .delete_task:after{
+
+.tasks_list .task_list_item .task_item_info .delete_task:after {
     content: "←";
     position: absolute;
     right: -14px;
     font-size: 24px;
     transition: .3s;
 }
-.tasks_list .task_list_item .task_item_info .delete_task:hover{
+
+.tasks_list .task_list_item .task_item_info .delete_task:hover {
     border-radius: 20px;
 }
-.tasks_list .task_list_item .task_item_info .delete_task:hover:before{
+
+.tasks_list .task_list_item .task_item_info .delete_task:hover:before {
     left: -5px;
     transition: .3s;
 }
-.tasks_list .task_list_item .task_item_info .delete_task:hover:after{
+
+.tasks_list .task_list_item .task_item_info .delete_task:hover:after {
     right: -5px;
     transition: .3s;
 }
+
+.tasks_list .task_list_item .task_item_info .delete_task_modal {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    display: none;
+    width: 80%;
+    height: 80%;
+    flex-wrap: wrap;
+    background: #fff;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 8px 0px;
+    padding: 5px;
+    box-sizing: border-box;
+    border: 1px dashed #f96262;
+    align-items: center;
+    justify-content: center;
+}
+
+.tasks_list .task_list_item .task_item_info .delete_task_modal .title {
+    width: 100%;
+    display: flex;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 30px;
+    font-size: 16px;
+    font-weight: 600;
+    justify-content: center;
+}
+
+.tasks_list .task_list_item .task_item_info .delete_task_modal .delete_task_yes,
+.tasks_list .task_list_item .task_item_info .delete_task_modal .delete_task_no {
+    width: 47%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 8px 0px;
+    height: 40px;
+    margin-bottom: 20px !important;
+    margin: 0px 5px;
+}
+
 .tasks_list .task_list_item .task_item_info div:last-child {
     margin-bottom: 0px;
 }

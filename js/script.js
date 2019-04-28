@@ -178,6 +178,8 @@ chooseColor.addEventListener("click", () => {
   } else {
     chooseColorModal.classList.add("show");
   }
+  choosePriorityModal.classList.remove("show");
+  chooseModalProject.classList.remove("show");
 });
 
 // Переключечние цветов
@@ -222,6 +224,8 @@ choosePriority.addEventListener("click", () => {
   } else {
     choosePriorityModal.classList.add("show");
   }
+  chooseColorModal.classList.remove("show");
+  chooseModalProject.classList.remove("show");
 });
 
 // Переключечние приоритетов
@@ -258,12 +262,15 @@ projectList.forEach(function (item, i) {
   chooseModalProject.appendChild(chooseProjectItem);
 
 });
+// Открыть модалку проектов
 chooseProject.addEventListener("click", () => {
   if (chooseModalProject.classList.contains("show")) {
     chooseModalProject.classList.remove("show");
   } else {
     chooseModalProject.classList.add("show");
   }
+  chooseColorModal.classList.remove("show");
+  choosePriorityModal.classList.remove("show");
 });
 
 var projectModalNewList = chooseModalProject.querySelectorAll(".choose_project_item");
@@ -291,8 +298,6 @@ projectModalNewList.forEach(function (item, i) {
   });
 });
 
-
-
 // Добавление нового события
 addNewTaskBtn.addEventListener("click", () => {
   textEditor.textContent = "";
@@ -318,7 +323,11 @@ cancel.addEventListener("click", () => {
 add.addEventListener("click", () => {
   let taskText = textEditor.textContent,
     taskListItem = document.createElement("div"), // Задача
-    deleteTask = document.createElement("div"), // Удалить задачу
+    deleteTaskModalBtn = document.createElement("div"), // ОТкрыть модалку удалить задачу
+    deleteTaskModal = document.createElement("div"), // Moдалка удалить задачу
+    deleteTaskModalTitle = document.createElement("p"), // Moдалка удалить задачу
+    deleteTaskYes = document.createElement("div"), // Удалить задачу
+    deleteTaskNo = document.createElement("div"), // Не удалять задачу
     taskItemText = document.createElement("div"), // Текст задачи
     tasnkInfoShow = document.createElement("div"), // Скрыть - показать инфо
     taskItemInfo = document.createElement("div"), // Блок с информацией
@@ -334,7 +343,12 @@ add.addEventListener("click", () => {
   taskInfoPriority.classList.add("task_info_priority");
   taskInfoProject.classList.add("task_info_project");
   tasnkInfoShow.classList.add("task_info_show");
-  deleteTask.classList.add("delete_task");
+  deleteTaskModalBtn.classList.add("delete_task");
+  deleteTaskModal.classList.add("delete_task_modal");
+  deleteTaskModalTitle.classList.add("title");
+  deleteTaskYes.classList.add("delete_task_yes");
+  deleteTaskNo.classList.add("delete_task_no");
+
   if (textEditor.textContent != "") {
     taskItemText.innerHTML = taskText;
     taskItemText.appendChild(tasnkInfoShow);
@@ -343,9 +357,16 @@ add.addEventListener("click", () => {
     taskInfoDate.textContent = "Дата: " + appData.event.date;
     taskInfoPriority.textContent = "Приоритет: " + appData.event.priority;
     taskInfoProject.textContent = "Проект: " + appData.event.project;
-    deleteTask.textContent = "Удалить событие";
+    deleteTaskModalBtn.textContent = "Удалить событие";
+    deleteTaskYes.textContent = "Да, я осознаю, что делаю";
+    deleteTaskNo.textContent = "Нет, не нужно ее удалять";
+    deleteTaskModalTitle.textContent = "Вы действительно хотите удалить задачу?";
 
     tasnkInfoShow.style.borderColor = appData.event.color;
+
+    deleteTaskModal.appendChild(deleteTaskModalTitle);
+    deleteTaskModal.appendChild(deleteTaskYes);
+    deleteTaskModal.appendChild(deleteTaskNo);
 
     taskListItem.appendChild(taskItemText);
     taskListItem.appendChild(taskItemInfo);
@@ -354,7 +375,8 @@ add.addEventListener("click", () => {
     taskItemInfo.appendChild(taskInfoPriority);
     taskItemInfo.appendChild(taskInfoProject);
     tasksList.appendChild(taskListItem);
-    taskItemInfo.appendChild(deleteTask);
+    taskItemInfo.appendChild(deleteTaskModalBtn);
+    taskItemInfo.appendChild(deleteTaskModal);
     newTaskFilling.classList.remove("expanded");
     addNewTaskBtn.classList.add("show");
     addNewTaskBtn.classList.remove("hide");
@@ -371,8 +393,19 @@ add.addEventListener("click", () => {
     }
   });
   // Удаление события
-  deleteTask.addEventListener("click", () => {
-    deleteTask.parentNode.parentNode.remove();
+  deleteTaskModalBtn.addEventListener("click", () => {
+    console.log("111111");
+    deleteTaskModal.classList.add("show");
+    deleteTaskModalBtn.classList.add("hide");
+  });
+  deleteTaskYes.addEventListener("click", () => {
+    console.log("2222222222");
+    deleteTaskModalBtn.parentNode.parentNode.remove();
+  });
+  deleteTaskNo.addEventListener("click", () => {
+    console.log("333333");
+    deleteTaskModal.classList.remove("show");
+    deleteTaskModalBtn.classList.remove("hide");
   });
 });
 
@@ -380,11 +413,8 @@ add.addEventListener("click", () => {
 
 console.log(appData);
 
-/* 
-Дата +
-Текст + 
-Приоритет - 
-Цвет +
-Проект - 
-
+/*
+- Сохранять все записи
+- Фильтр
+- выполнение задачи!
 */
