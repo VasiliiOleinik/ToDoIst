@@ -53,6 +53,8 @@ const appData = {
     text: ""
   }
 };
+let appUser = {};
+
 
 // Показать список проектов
 showProjects.addEventListener("click", () => {
@@ -319,8 +321,31 @@ cancel.addEventListener("click", () => {
   addNewTaskBtn.classList.remove("hide");
 });
 
+
+let randTask,
+  serializedUser,
+  task;
 // Добавить событие
 add.addEventListener("click", () => {
+  createTask();
+
+  randTask = Math.floor(1000 + Math.random() * (10000 + 1 - 1000));
+  appUser[randTask] = appData;
+
+  serializedUser = JSON.stringify(appUser);
+  localStorage.setItem('item/task', serializedUser);
+  task = JSON.parse(localStorage.getItem('item/task'));
+  console.log(Object.keys(task));
+  console.log(Object.values( ));
+
+
+
+});
+
+// console.log(JSON.parse(localStorage.getItem(randTask)));
+
+
+function createTask() {
   let taskText = textEditor.textContent,
     taskListItem = document.createElement("div"), // Задача
     deleteTaskModalBtn = document.createElement("div"), // ОТкрыть модалку удалить задачу
@@ -394,24 +419,23 @@ add.addEventListener("click", () => {
   });
   // Удаление события
   deleteTaskModalBtn.addEventListener("click", () => {
-    console.log("111111");
     deleteTaskModal.classList.add("show");
     deleteTaskModalBtn.classList.add("hide");
   });
   deleteTaskYes.addEventListener("click", () => {
-    console.log("2222222222");
     deleteTaskModalBtn.parentNode.parentNode.remove();
   });
   deleteTaskNo.addEventListener("click", () => {
-    console.log("333333");
     deleteTaskModal.classList.remove("show");
     deleteTaskModalBtn.classList.remove("hide");
   });
+}
+
+window.addEventListener("DOMContentLoaded", function () {
+
 });
-
-
-
-console.log(appData);
+// console.log(appData);
+// console.log(appUser);
 
 /*
 - Сохранять все записи
